@@ -12,15 +12,21 @@ public:
     auto findLength = findNums.size();
     auto numsLength = nums.size();
     for(auto position = 0; position < findLength; ++position){
-      auto existFlag = -1;
-      for(auto cursor = position; cursor < numsLength; ++cursor){
-        if(nums[cursor] > findNums[position]){
-          existFlag = nums[cursor];
+      bool existFlag = false;
+      unsigned int exist = -1;
+
+      for(auto cursor = 0; cursor < numsLength; ++cursor){
+        if(nums[cursor] == findNums[position]){
+          existFlag = true;
+        }
+
+        if((nums[cursor] > findNums[position]) && existFlag){
+          exist = nums[cursor];
           break;
         }
       }
 
-      result.push_back(existFlag);
+      result.push_back(exist);
     }
 
     return result;
