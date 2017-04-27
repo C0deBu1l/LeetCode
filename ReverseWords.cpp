@@ -5,11 +5,11 @@ using namespace std;
 
 class Solution
 {
-  public: 
+public: 
   string ReverseWords(string s)
   {
     string reverse;
-    
+
     string reverseTemp;
     for(auto temp: s){
       if(isspace(temp)){

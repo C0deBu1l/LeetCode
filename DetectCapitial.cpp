@@ -8,11 +8,9 @@ class Solution
 public:
   bool DetectCapitial(string word)
   {
-    bool flag = false;
     int upper = 0;
     int lower = 0;
-    int length = word.size();
-    for(int index = 0; index < length; ++index){
+    for(int index = 0; index < word.size(); ++index){
       if(word[index] >= 'A' && word[index] <= 'Z'){
         ++upper;
       }else{
@@ -20,9 +18,10 @@ public:
       }
     }
 
-    if((word[0] >= 'A' && word[0] <= 'Z') && ((upper == 1) || (upper == length))){
+    bool flag = false;
+    if((word[0] >= 'A' && word[0] <= 'Z') && ((upper == 1) || (upper == word.size()))){
       flag = true;
-    }else if(lower == length){
+    }else if(lower == word.size()){
       flag = true;
     }else{
 

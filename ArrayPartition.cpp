@@ -17,24 +17,24 @@ public:
     return result;
   }
 
-  void QuickSort(vector<int> &s, int l, int r)
+  void QuickSort(vector<int> &s, int left, int right)
   {
-    if(l < r){
-      int i = l, j = r, x = s[l];
-      while(i < j){
-        while(i < j && s[j] >= x) // 从右向左找第一个小于x的数
-          j--;
-        if(i < j)
-          s[i++] = s[j];
+    if(left < right){
+      int begin = left, end = right, cursor = s[left];
+      while(begin < end){
+        while(begin < end && s[end] >= cursor) // 从右向左找第一个小于x的数
+          --end;
+        if(begin < end)
+          s[begin++] = s[end];
 
-        while(i < j && s[i] < x) // 从左向右找第一个大于等于x的数
-          i++;
-        if(i < j)
-          s[j--] = s[i];
+        while(begin < end && s[begin] < cursor) // 从左向右找第一个大于等于x的数
+          ++begin;
+        if(begin < end)
+          s[end--] = s[begin];
       }
-      s[i] = x;
-      QuickSort(s, l, i - 1); // 递归调用
-      QuickSort(s, i + 1, r);
+      s[begin] = cursor;
+      QuickSort(s, left, begin - 1); // 递归调用
+      QuickSort(s, begin + 1, right);
     }
   }
 };
