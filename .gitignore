@@ -1,3 +1,6 @@
-.gitignore
 .vscode
+test.input
+test.output
 a.out
+
+.gitignore
